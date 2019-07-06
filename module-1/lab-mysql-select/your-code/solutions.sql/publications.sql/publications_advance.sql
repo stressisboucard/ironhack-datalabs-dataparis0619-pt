@@ -17,15 +17,17 @@ FROM
             authors.au_fname,
             authors.au_lname,
             titles.price * sales.qty * titles.royalty / 100 * titleauthor.royaltyper / 100 AS sales_royalty
-    FROM
-        authors
-    INNER JOIN titleauthor ON authors.au_id = titleauthor.au_id
-    INNER JOIN sales ON sales.title_id = titleauthor.title_id
-    INNER JOIN titles ON sales.title_id = titles.title_id
-    ORDER BY au_id) sub1
+		FROM
+			authors
+		INNER JOIN titleauthor ON authors.au_id = titleauthor.au_id
+		INNER JOIN sales ON sales.title_id = titleauthor.title_id
+		INNER JOIN titles ON sales.title_id = titles.title_id
+		ORDER BY au_id) sub1
+        
     GROUP BY au_id , title_id
     ORDER BY au_id) sub2
-        INNER JOIN
+
+INNER JOIN
     titles ON sub2.title_id = titles.title_id
 GROUP BY au_id
 ORDER BY revenue DESC
