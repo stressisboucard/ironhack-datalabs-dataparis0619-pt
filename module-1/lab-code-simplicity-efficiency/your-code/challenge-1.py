@@ -15,7 +15,7 @@ a = input('Please choose your first number (zero to five): ')
 b = input('What do you want to do? plus or minus: ')
 c = input('Please choose your second number (zero to five): ')
 
-if a == 'zero' and b == 'plus'  and c == 'zero':
+"""if a == 'zero' and b == 'plus'  and c == 'zero':
     print("zero plus zero equals zero")
 if a == 'zero' and b == 'plus'  and c == 'one':
     print("zero plus one equals one")
@@ -162,8 +162,41 @@ if a == 'five' and b == 'minus' and c == 'four':
 if a == 'five' and b == 'minus' and c == 'five':
     print("five minus five equals zero")
 
+"""
+number_to_int = {
+	'minus five': -5,
+	'minus four': -4,
+	'minus three': -3,
+	'minus two': -2,
+	'minus one': -1,
+	'one': 1,
+	'two': 2,
+	'three': 3,
+	'four': 4,
+	'five': 5,
+	'six': 6,
+	'seven': 7,
+	'eight': 8,
+	'nine': 9,
+	'ten': 10
+}
 
-if (not a == 'zero' and not a == 'one' and not a == 'two' and not a == 'three' and not a == 'four' and not a == 'five') or (not c == 'zero' and not c == 'one' and not c == 'two' and not c == 'three' and not c == 'four' and not c == 'five') or (not b == 'plus' and not b == 'minus'):
+int_to_number = dict(zip(number_to_int.values(),number_to_int.keys()))
+
+
+a = input('number between 0 and 5: ')
+b = input('plus or minus: ')
+c = input('number between 0 and 5: ')
+
+a = number_to_int[a]
+c = number_to_int[c]
+
+if b=='plus': res = a+c
+elif b=='minus': res = a-c
+
+print(int_to_number[a],b,int_to_number[c],'equals',int_to_number[res])
+
+if a,b not in number_to_int or b not ('plus','minus')
     print("I am not able to answer this question. Check your input.")
 
 print("Thanks for using this calculator, goodbye :)")
