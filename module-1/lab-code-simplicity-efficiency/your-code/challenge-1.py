@@ -184,19 +184,25 @@ number_to_int = {
 int_to_number = dict(zip(number_to_int.values(),number_to_int.keys()))
 
 
+int_to_number = {value:key for key,value in number_to_int.items()}
+
 a = input('number between 0 and 5: ')
 b = input('plus or minus: ')
 c = input('number between 0 and 5: ')
 
+if a not in number_to_int or c not in number_to_int or b not in ['plus','minus']
+    raise ValueError("I am not able to answer this question. Check your input.")
+
 a = number_to_int[a]
 c = number_to_int[c]
 
-if b=='plus': res = a+c
-elif b=='minus': res = a-c
+if b=='plus':
+    res = a+c
+else:
+    res = a-c
 
 print(int_to_number[a],b,int_to_number[c],'equals',int_to_number[res])
 
-if a,b not in number_to_int or b not ('plus','minus')
-    print("I am not able to answer this question. Check your input.")
+
 
 print("Thanks for using this calculator, goodbye :)")
